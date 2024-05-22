@@ -17,6 +17,7 @@ The image below summarizes the workflow of our software module:
 
 ![flow](images/final_flow.png)
 
+
 The flow of the project as described as below:
 - Capture image from zed. 
 - Segment the image.
@@ -37,8 +38,8 @@ You can view a demonstration of the project below. For a full video of the exper
 
 Setup of the car involves the zed camera is kept at the height of 5.5 cm from the ground, and connecting the camera to the server computer. The below image illustrates the setup of the work
 
-![flow](images/bot.jpg)
-
+<!-- ![flow](images/bot.jpg) -->
+<img src="images/bot.jpg" alt="flow" width="420" height = "250"/>
 ## Prerequisites
 
 First of all clone the repo in your local computer
