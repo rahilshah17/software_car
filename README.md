@@ -37,7 +37,7 @@ You can view a demonstration of the project below. For a full video of the exper
 
 Setup of the car involves the zed camera is kept at the height of 5.5 cm from the ground, and connecting the camera to the server computer. The below image illustrates the setup of the work
 
-![flow](images/bot.png)
+![flow](images/bot.jpg)
 
 ## Prerequisites
 
