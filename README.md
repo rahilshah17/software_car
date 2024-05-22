@@ -40,6 +40,7 @@ Setup of the car involves the zed camera is kept at the height of 5.5 cm from th
 
 <!-- ![flow](images/bot.jpg) -->
 <img src="images/bot.jpg" alt="flow" width="420" height = "250"/>
+
 ## Prerequisites
 
 First of all clone the repo in your local computer
