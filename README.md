@@ -122,7 +122,7 @@ The integration process involves incorporating the navigation algorithm, which c
 
 ## Detailed Report
 
-For an in-depth understanding of the algorithms developed in this project and their verification process, please refer to the following resources:
+For an in-depth understanding of the algorithms developed for this project and their verification process, please refer to the following resources:
 
 - [Detailed Report](https://github.com/rahilshah17/rahilshah17/software_car/project_report.pdf) 
 - [Presentation](https://github.com/rahilshah17/rahilshah17/software_car/presentation.pptx)
@@ -146,4 +146,4 @@ We utilized several references to develop the software module for the autonomous
 - **YOLOP**: The architecture and model were adopted from the following repository and research: [YOLOP](https://github.com/hustvl/YOLOP).
 - **Pixel to 3D Coordinates Conversion**: The method for converting pixels to 3D coordinates was referenced from this guide: [Link](https://thomasfermi.github.io/Algorithms-for-Automated-Driving/LaneDetection/InversePerspectiveMapping.html).
 
-I do not claim credit for the development of these algorithms and sincerely thank the original authors for their contributions.
+I do not claim credit for the development for the above two algorithms and sincerely thank the original authors for their contributions.
