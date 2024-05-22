@@ -15,6 +15,7 @@ This file is the heart of the project. It does the following
 4. Finds the next way point
 5. Estimates the 3D coordinates
 6. Sends this 3d coordinates to control module
+7. Repeat the process from step 1 again
 --------------------------------------------- 
 """
 
@@ -42,9 +43,8 @@ def find_3d_coordinates(x_2d, y_2d):
     image_size = zed.get_camera_information().camera_configuration.resolution
     image_width = image_size.width
     image_height = image_size.height
-    # image_width = 1080
-    # image_height = 1920
-    # h_fov = 120
+    
+    # height will change when we change the height where the camera is placed.
     cam_geom = CameraGeometry(height=0.08, yaw_deg=0, pitch_deg=0, roll_deg=0, image_width=image_width, image_height=image_height, field_of_view_deg=h_fov)
 
 
@@ -97,6 +97,8 @@ while True:
     current_time = now.strftime("%H:%M:%S")
     print("Iteration number ",iteration)
     print("Current image taken at the time: ",current_time)
+
+    # Calculate the current position using the IMU sensor of car
     print("Current position is: [",curr_x,", ",curr_y,"]",sep="")
     start_time = time.time()
     # capture image
@@ -147,6 +149,7 @@ while True:
     _, thresholded_diff = cv2.threshold(diff_gray, 1, 255, cv2.THRESH_BINARY)
 
     # Save the resulting image
+    # The below image will show the drivable area.
     # cv2.imwrite("diff_non_black.png", thresholded_diff)
 
 
@@ -187,22 +190,24 @@ while True:
 
 
     #------------------------------------------------------
+    # Can be used if the way points are generated correctly
     # Marking the way points on the image
     # Create a copy of the image to draw on
-    image_with_dots = image_rgb.copy()
+    # image_with_dots = image_rgb.copy()
 
-    # Draw blue dots at midx and midy coordinates
-    dot_color = (0, 0, 255)  # Blue color in BGR format
-    dot_radius = 10  # Radius of the dots
-    for x, y in zip(midx, midy):
-        cv2.circle(image_with_dots, (int(x), int(y)), dot_radius, dot_color, -1)  # Draw filled circle
+    # # Draw blue dots at midx and midy coordinates
+    # dot_color = (0, 0, 255)  # Blue color in BGR format
+    # dot_radius = 10  # Radius of the dots
+    # for x, y in zip(midx, midy):
+    #     cv2.circle(image_with_dots, (int(x), int(y)), dot_radius, dot_color, -1)  # Draw filled circle
 
     # The way points image
     # cv2.imwrite("way_points.png", image_with_dots)
     #------------------------------------------------------
 
     #------------------------------------------------------
-    # Getting the depth value of way points
+    # Getting the depth value of way points and updating the
+    # global way points
     way_points = []
     for i in range(len(midx)):
         way_points.append(find_3d_coordinates(int(midx[i]), int(midy[i])))
@@ -216,24 +221,25 @@ while True:
         for point in way_points:
             csv_writer.writerow(point)
     #------------------------------------------------------
-
+    # The below lines can be used for debugging purposes
 
     #------------------------------------------------------
     # Storing the outputs
     # Concatenate images horizontally
-    combined_image = np.concatenate((image_np, image_with_dots), axis=1)
+    # combined_image = np.concatenate((image_np, image_with_dots), axis=1)
     
-    # Create the folder if it doesn't exist
-    folder_path = "combined_images"
-    os.makedirs(folder_path, exist_ok=True)
+    # # Create the folder if it doesn't exist
+    # folder_path = "combined_images"
+    # os.makedirs(folder_path, exist_ok=True)
 
-    # Inside the loop
-    combined_image_path = os.path.join(folder_path, f"combined_image_{iteration}.png")
-    cv2.imwrite(combined_image_path, combined_image)
+    # # Inside the loop
+    # combined_image_path = os.path.join(folder_path, f"combined_image_{iteration}.png")
+    # cv2.imwrite(combined_image_path, combined_image)
     iteration += 1
     #------------------------------------------------------
 
     #------------------------------------------------------
+    # The below code calculates the latency of each iteration.
     # Wait for 10 s before next iteration
     # curr_time = time.time()
     # elapsed_time = curr_time - start_time
@@ -241,6 +247,10 @@ while True:
     #     time.sleep(10)
     #     elapsed_time += 10
     #------------------------------------------------------
+    
+
+    # Remove the below lines when the car is integrated with the IMU
+    # sensors.
     curr_x += 25
     curr_y += 40
 
