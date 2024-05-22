@@ -146,4 +146,4 @@ We utilized several references to develop the software module for the autonomous
 - **YOLOP**: The architecture and model were adopted from the following repository and research: [YOLOP](https://github.com/hustvl/YOLOP).
 - **Pixel to 3D Coordinates Conversion**: The method for converting pixels to 3D coordinates was referenced from this guide: [Link](https://thomasfermi.github.io/Algorithms-for-Automated-Driving/LaneDetection/InversePerspectiveMapping.html).
 
-I do not claim credit for the development for the above two algorithms and sincerely thank the original authors for their contributions.
+I do not claim credit for the development for the above two algorithms and I sincerely thank the original authors for their contributions.
