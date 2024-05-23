@@ -126,8 +126,8 @@ The integration process involves incorporating the navigation algorithm, which c
 
 For an in-depth understanding of the algorithms developed for this project and their verification process, please refer to the following resources:
 
-- [Detailed Report](https://github.com/rahilshah17/rahilshah17/software_car/project_report.pdf) 
-- [Presentation](https://github.com/rahilshah17/rahilshah17/software_car/presentation.pptx)
+- [Detailed Report](https://github.com/rahilshah17/software_car/blob/main/project_report.pdf) 
+- [Presentation](https://github.com/rahilshah17/software_car/blob/main/presentation.pptx)
 
 
 ## Acknowledgements
