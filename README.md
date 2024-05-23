@@ -1,10 +1,12 @@
 
-# Segmentation module for autnomous cars
+# Software module for autnomous cars
 
 ## Author
 
 - [Rahil Shah](https://github.com/rahilshah17)
 
+## Guide
+- **Dr. Ramkrishna Pasumarthy**
 
 ## Introduction
 
